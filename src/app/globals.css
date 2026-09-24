@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Background & Surface Tokens */
+    --background: #f8fafc;
+    --surface: #ffffff;
+    --surface-card: #ffffff;
+    --surface-popover: #ffffff;
+    --surface-subtle: #f1f5f9;
+
+    /* Typography Tokens */
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+    --text-disabled: #94a3b8;
+
+    /* Brand Direction: Teal / Emerald */
+    --brand-primary: #0f766e;
+    --brand-secondary: #14b8a6;
+    --brand-accent: #2dd4bf;
+
+    /* Semantic Feedback */
+    --success: #16a34a;
+    --warning: #d97706;
+    --destructive: #dc2626;
+    --info: #2563eb;
+
+    /* Operational Risk Colors (Distinct from brand) */
+    --risk-low: #16a34a;
+    --risk-moderate: #ca8a04;
+    --risk-high: #ea580c;
+    --risk-critical: #dc2626;
+
+    --risk-low-bg: #dcfce7;
+    --risk-moderate-bg: #fef9c3;
+    --risk-high-bg: #ffedd5;
+    --risk-critical-bg: #fee2e2;
+
+    /* Border & Divider Tokens */
+    --border-subtle: #e2e8f0;
+    --border-default: #cbd5e1;
+    --border-active: #0f766e;
+
+    /* Fonts */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+
+  .dark {
+    /* Background & Surface Tokens (Dark Mode) */
+    --background: #080d16;
+    --surface: #0f172a;
+    --surface-card: #111c2e;
+    --surface-popover: #172235;
+    --surface-subtle: #1e293b;
+
+    /* Typography Tokens (Dark Mode) */
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --text-disabled: #64748b;
+
+    /* Brand Direction (Dark Mode) */
+    --brand-primary: #14b8a6;
+    --brand-secondary: #2dd4bf;
+    --brand-accent: #5eead4;
+
+    /* Semantic Feedback (Dark Mode) */
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --destructive: #ef4444;
+    --info: #60a5fa;
+
+    /* Operational Risk Colors (Dark Mode) */
+    --risk-low: #22c55e;
+    --risk-moderate: #eab308;
+    --risk-high: #fb923c;
+    --risk-critical: #ef4444;
+
+    --risk-low-bg: #052e16;
+    --risk-moderate-bg: #422006;
+    --risk-high-bg: #431407;
+    --risk-critical-bg: #450a0a;
+
+    /* Border & Divider Tokens (Dark Mode) */
+    --border-subtle: #1e293b;
+    --border-default: #334155;
+    --border-active: #14b8a6;
+  }
+
+  * {
+    border-color: var(--border-subtle);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-feature-settings: "rlig" 1, "calt" 1, "cv11" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Typography Scale Classes */
+.text-display { font-size: 36px; line-height: 44px; font-weight: 700; letter-spacing: -0.02em; }
+.text-h1 { font-size: 30px; line-height: 38px; font-weight: 700; letter-spacing: -0.015em; }
+.text-h2 { font-size: 24px; line-height: 32px; font-weight: 600; letter-spacing: -0.01em; }
+.text-h3 { font-size: 20px; line-height: 28px; font-weight: 600; }
+.text-h4 { font-size: 18px; line-height: 26px; font-weight: 600; }
+.text-body-large { font-size: 16px; line-height: 24px; font-weight: 400; }
+.text-body { font-size: 15px; line-height: 22px; font-weight: 400; }
+.text-body-small { font-size: 14px; line-height: 20px; font-weight: 400; }
+.text-caption { font-size: 12px; line-height: 16px; font-weight: 400; }
+.text-label { font-size: 13px; line-height: 18px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+.text-metric { font-family: var(--font-mono); font-size: 24px; line-height: 30px; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* Accessible Focus States */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
+/* Print Stylesheet (Requirement 18) */
+@media print {
+  /* Hide interactive / non-printable UI elements */
+  header,
+  footer,
+  nav,
+  aside,
+  button,
+  .no-print,
+  [role="dialog"],
+  [role="progressbar"],
+  [aria-label="Back to top"],
+  [aria-label="Cookie and Storage Notice"] {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 11pt !important;
+    line-height: 1.5 !important;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .print-readable {
+    box-shadow: none !important;
+    border: 1px solid #cbd5e1 !important;
+    break-inside: avoid !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+}
